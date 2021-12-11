@@ -2,6 +2,7 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
+import debounce from 'lodash/debounce'
 import * as color from '../../helpers/color'
 import isUndefined from 'lodash/isUndefined'
 
@@ -182,7 +183,7 @@ export class ChromeFields extends React.Component {
           <EditableInput
             style={{ input: styles.input, label: styles.label }}
             label="hex" value={ this.props.hex }
-            onChange={ this.handleChange }
+            onChange={ debounce(this.handleChange, this.props.hexInputDebounce) }
           />
         </div>
       </div>)

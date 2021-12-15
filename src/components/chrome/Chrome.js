@@ -9,7 +9,7 @@ import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 
 export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
-  hexInputDebounce, styles: passedStyles = {}, className = '' }) => {
+  hexInputDebounce, styles: passedStyles = {}, className = '', defaultView }) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {

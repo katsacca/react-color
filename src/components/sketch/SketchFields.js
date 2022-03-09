@@ -96,7 +96,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="r"
           value={ rgb.r }
-          onChange={ handleChange }
+          onChange={ debounce(handleChange, hexInputDebounce) }
           dragLabel="true"
           dragMax="255"
         />
@@ -106,7 +106,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="g"
           value={ rgb.g }
-          onChange={ handleChange }
+          onChange={ debounce(handleChange, hexInputDebounce) }
           dragLabel="true"
           dragMax="255"
         />
@@ -116,7 +116,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="b"
           value={ rgb.b }
-          onChange={ handleChange }
+          onChange={ debounce(handleChange, hexInputDebounce) }
           dragLabel="true"
           dragMax="255"
         />
@@ -126,7 +126,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="a"
           value={ Math.round(rgb.a * 100) }
-          onChange={ handleChange }
+          onChange={ debounce(handleChange, hexInputDebounce) }
           dragLabel="true"
           dragMax="100"
         />

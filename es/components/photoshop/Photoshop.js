@@ -176,7 +176,7 @@ Photoshop.propTypes = {
 Photoshop.defaultProps = {
   header: 'Color Picker',
   styles: {},
-  hexInputDebounce: 750
+  hexInputDebounce: 3000
 };
 
 export default ColorWrap(Photoshop);

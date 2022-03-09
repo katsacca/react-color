@@ -167,7 +167,7 @@ Twitter.defaultProps = {
     '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
   triangle: 'top-left',
   styles: {},
-  inputDebounce: 750,
+  inputDebounce: 3000,
 }
 
 export default ColorWrap(Twitter)

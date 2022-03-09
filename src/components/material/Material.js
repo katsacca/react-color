@@ -138,7 +138,7 @@ Material.propTypes = {
 }
 
 Material.defaultProps = {
-  hexInputDebounce: 750,
+  hexInputDebounce: 3000,
 }
 
 export default ColorWrap(Material)

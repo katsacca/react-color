@@ -81,7 +81,7 @@ Compact.defaultProps = {
     '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E',
   ],
   styles: {},
-  hexInputDebounce: 750,
+  hexInputDebounce: 3000,
 }
 
 export default ColorWrap(Compact)

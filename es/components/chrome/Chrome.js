@@ -187,7 +187,7 @@ Chrome.defaultProps = {
   width: 225,
   disableAlpha: false,
   styles: {},
-  hexInputDebounce: 750
+  hexInputDebounce: 3000
 };
 
 export default ColorWrap(Chrome);

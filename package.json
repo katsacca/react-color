@@ -1,12 +1,12 @@
 {
   "name": "react-color",
-  "version": "2.19.3",
+  "version": "2.19.4",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "module": "es/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/casesandberg/react-color.git"
+    "url": "git+https://github.com/katsacca/react-color.git"
   },
   "author": "case <case@casesandberg.com>",
   "license": "MIT",
@@ -99,7 +99,7 @@
     "rimraf": "^2.5.0",
     "style-loader": "^0.13.0",
     "testdom": "^2.0.0",
-    "webpack": "^1.11.0",
+    "webpack": "^1.15.0",
     "webpack-dev-server": "^1.10.1"
   },
   "files": [

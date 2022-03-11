@@ -54,7 +54,7 @@ export class EditableInput extends (PureComponent || Component) {
     if (this.state.blurValue) {
       const blurVal = this.state.blurValue;
       this.setState({ value: this.state.blurValue, blurValue: null }, () => {
-        console.log("trigger onchange", blurVal)
+        console.log("trigger onchange", blurVal, this.state.value, this.state.blurValue)
         this.props.onChange(blurVal, e)
       })
     }

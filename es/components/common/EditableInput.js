@@ -38,7 +38,7 @@ export var EditableInput = function (_ref) {
       if (_this.state.blurValue) {
         var blurVal = _this.state.blurValue;
         _this.setState({ value: _this.state.blurValue, blurValue: null }, function () {
-          console.log("trigger onchange", blurVal);
+          console.log("trigger onchange", blurVal, _this.state.value, _this.state.blurValue);
           _this.props.onChange(blurVal, e);
         });
       }

@@ -50,7 +50,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
   }, { disableAlpha })
 
   const handleChange = (data, e) => {
-    console.log("Trigger handle change!")
+    console.log("Trigger handle change!", data)
     if (data.hex) {
       color.isValidHex(data.hex) && onChange({
         hex: data.hex,

@@ -57,6 +57,7 @@ export var SketchFields = function SketchFields(_ref) {
   }, { disableAlpha: disableAlpha });
 
   var handleChange = function handleChange(data, e) {
+    console.log("Trigger handle change!");
     if (data.hex) {
       color.isValidHex(data.hex) && onChange({
         hex: data.hex,

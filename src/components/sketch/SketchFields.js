@@ -2,7 +2,7 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
-import debounce from 'lodash/debounce'
+// import debounce from 'lodash/debounce'
 import * as color from '../../helpers/color'
 
 import { EditableInput } from '../common'
@@ -89,7 +89,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           label="hex"
           value={ hex.replace('#', '') }
           onChange={ handleChange }
-          inputDebounceTime={hexInputDebounce}
+          inputDebounceTime={ hexInputDebounce }
         />
       </div>
       <div style={ styles.single }>
@@ -98,7 +98,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           label="r"
           value={ rgb.r }
           onChange={ handleChange }
-          inputDebounceTime={hexInputDebounce}
+          inputDebounceTime={ hexInputDebounce }
           dragLabel="true"
           dragMax="255"
         />
@@ -109,7 +109,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           label="g"
           value={ rgb.g }
           onChange={ handleChange }
-          inputDebounceTime={hexInputDebounce}
+          inputDebounceTime={ hexInputDebounce }
           dragLabel="true"
           dragMax="255"
         />
@@ -120,7 +120,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           label="b"
           value={ rgb.b }
           onChange={ handleChange }
-          inputDebounceTime={hexInputDebounce}
+          inputDebounceTime={ hexInputDebounce }
           dragLabel="true"
           dragMax="255"
         />
@@ -131,7 +131,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           label="a"
           value={ Math.round(rgb.a * 100) }
           onChange={ handleChange }
-          inputDebounceTime={hexInputDebounce}
+          inputDebounceTime={ hexInputDebounce }
           dragLabel="true"
           dragMax="100"
         />

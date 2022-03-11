@@ -54,6 +54,7 @@ export class EditableInput extends (PureComponent || Component) {
     if (this.state.blurValue) {
       const blurVal = this.state.blurValue;
       this.setState({ value: this.state.blurValue, blurValue: null }, () => {
+        console.log("trigger onchange", blurVal)
         this.props.onChange(blurVal, e)
       })
     }
@@ -83,6 +84,7 @@ export class EditableInput extends (PureComponent || Component) {
   setUpdatedValue(value, e) {
     const onChangeValue = this.props.label ? this.getValueObjectWithLabel(value) : value
     if (this.props.onChange) {
+      console.log("debounce onchange", onChangeValue, this.props.inputDebounceTime)
       if (this.props.inputDebounceTime) {
         debounce(this.props.onChange(onChangeValue, e), this.props.inputDebounceTime)
       } else {

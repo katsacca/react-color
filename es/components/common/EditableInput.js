@@ -38,6 +38,7 @@ export var EditableInput = function (_ref) {
       if (_this.state.blurValue) {
         var blurVal = _this.state.blurValue;
         _this.setState({ value: _this.state.blurValue, blurValue: null }, function () {
+          console.log("trigger onchange", blurVal);
           _this.props.onChange(blurVal, e);
         });
       }
@@ -127,6 +128,7 @@ export var EditableInput = function (_ref) {
     value: function setUpdatedValue(value, e) {
       var onChangeValue = this.props.label ? this.getValueObjectWithLabel(value) : value;
       if (this.props.onChange) {
+        console.log("debounce onchange", onChangeValue, this.props.inputDebounceTime);
         if (this.props.inputDebounceTime) {
           debounce(this.props.onChange(onChangeValue, e), this.props.inputDebounceTime);
         } else {

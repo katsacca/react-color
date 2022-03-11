@@ -2,7 +2,7 @@
 
 import React from 'react';
 import reactCSS from 'reactcss';
-import debounce from 'lodash-es/debounce';
+// import debounce from 'lodash/debounce'
 import * as color from '../../helpers/color';
 
 import { EditableInput } from '../common';

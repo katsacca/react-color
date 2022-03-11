@@ -86,7 +86,7 @@ export class EditableInput extends (PureComponent || Component) {
     if (this.props.onChange) {
       console.log("debounce onchange", onChangeValue, this.props.inputDebounceTime)
       if (this.props.inputDebounceTime) {
-        debounce(this.props.onChange(onChangeValue, e), this.props.inputDebounceTime)
+        debounce(() => this.props.onChange(onChangeValue, e), this.props.inputDebounceTime)
       } else {
         this.props.onChange(onChangeValue, e)
       }

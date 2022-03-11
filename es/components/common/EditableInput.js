@@ -126,11 +126,15 @@ export var EditableInput = function (_ref) {
   }, {
     key: 'setUpdatedValue',
     value: function setUpdatedValue(value, e) {
+      var _this2 = this;
+
       var onChangeValue = this.props.label ? this.getValueObjectWithLabel(value) : value;
       if (this.props.onChange) {
         console.log("debounce onchange", onChangeValue, this.props.inputDebounceTime);
         if (this.props.inputDebounceTime) {
-          debounce(this.props.onChange(onChangeValue, e), this.props.inputDebounceTime);
+          debounce(function () {
+            return _this2.props.onChange(onChangeValue, e);
+          }, this.props.inputDebounceTime);
         } else {
           this.props.onChange(onChangeValue, e);
         }
@@ -141,7 +145,7 @@ export var EditableInput = function (_ref) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var styles = reactCSS({
         'default': {
@@ -170,7 +174,7 @@ export var EditableInput = function (_ref) {
           id: this.inputId,
           style: styles.input,
           ref: function ref(input) {
-            return _this2.input = input;
+            return _this3.input = input;
           },
           value: this.state.value,
           onKeyDown: this.handleKeyDown,

@@ -35,10 +35,10 @@ export var EditableInput = function (_ref) {
     var _this = _possibleConstructorReturn(this, (EditableInput.__proto__ || Object.getPrototypeOf(EditableInput)).call(this));
 
     _this.handleBlur = function (e) {
+      console.log("trigger onchange", _this.state.value, _this.state.blurValue);
       if (_this.state.blurValue) {
         var blurVal = _this.state.blurValue;
         _this.setState({ value: _this.state.blurValue, blurValue: null }, function () {
-          console.log("trigger onchange", blurVal, _this.state.value, _this.state.blurValue);
           _this.props.onChange(blurVal, e);
         });
       }
@@ -129,6 +129,7 @@ export var EditableInput = function (_ref) {
       var _this2 = this;
 
       var onChangeValue = this.props.label ? this.getValueObjectWithLabel(value) : value;
+      this.setState({ value: value });
       if (this.props.onChange) {
         console.log("debounce onchange", onChangeValue, this.props.inputDebounceTime);
         if (this.props.inputDebounceTime) {
@@ -139,8 +140,6 @@ export var EditableInput = function (_ref) {
           this.props.onChange(onChangeValue, e);
         }
       }
-
-      this.setState({ value: value });
     }
   }, {
     key: 'render',

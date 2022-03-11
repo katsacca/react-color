@@ -88,7 +88,8 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="hex"
           value={ hex.replace('#', '') }
-          onChange={ debounce(handleChange, hexInputDebounce) }
+          onChange={ handleChange }
+          inputDebounceTime={hexInputDebounce}
         />
       </div>
       <div style={ styles.single }>
@@ -96,7 +97,8 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="r"
           value={ rgb.r }
-          onChange={ debounce(handleChange, hexInputDebounce) }
+          onChange={ handleChange }
+          inputDebounceTime={hexInputDebounce}
           dragLabel="true"
           dragMax="255"
         />
@@ -106,7 +108,8 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="g"
           value={ rgb.g }
-          onChange={ debounce(handleChange, hexInputDebounce) }
+          onChange={ handleChange }
+          inputDebounceTime={hexInputDebounce}
           dragLabel="true"
           dragMax="255"
         />
@@ -116,7 +119,8 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="b"
           value={ rgb.b }
-          onChange={ debounce(handleChange, hexInputDebounce) }
+          onChange={ handleChange }
+          inputDebounceTime={hexInputDebounce}
           dragLabel="true"
           dragMax="255"
         />
@@ -126,7 +130,8 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDe
           style={{ input: styles.input, label: styles.label }}
           label="a"
           value={ Math.round(rgb.a * 100) }
-          onChange={ debounce(handleChange, hexInputDebounce) }
+          onChange={ handleChange }
+          inputDebounceTime={hexInputDebounce}
           dragLabel="true"
           dragMax="100"
         />

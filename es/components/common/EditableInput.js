@@ -9,6 +9,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React, { Component, PureComponent } from 'react';
+import debounce from 'lodash-es/debounce';
 import reactCSS from 'reactcss';
 
 var DEFAULT_ARROW_OFFSET = 1;
@@ -33,9 +34,12 @@ export var EditableInput = function (_ref) {
 
     var _this = _possibleConstructorReturn(this, (EditableInput.__proto__ || Object.getPrototypeOf(EditableInput)).call(this));
 
-    _this.handleBlur = function () {
+    _this.handleBlur = function (e) {
       if (_this.state.blurValue) {
-        _this.setState({ value: _this.state.blurValue, blurValue: null });
+        var blurVal = _this.state.blurValue;
+        _this.setState({ value: _this.state.blurValue, blurValue: null }, function () {
+          _this.props.onChange(blurVal, e);
+        });
       }
     };
 
@@ -122,7 +126,13 @@ export var EditableInput = function (_ref) {
     key: 'setUpdatedValue',
     value: function setUpdatedValue(value, e) {
       var onChangeValue = this.props.label ? this.getValueObjectWithLabel(value) : value;
-      this.props.onChange && this.props.onChange(onChangeValue, e);
+      if (this.props.onChange) {
+        if (this.props.inputDebounceTime) {
+          debounce(this.props.onChange(onChangeValue, e), this.props.inputDebounceTime);
+        } else {
+          this.props.onChange(onChangeValue, e);
+        }
+      }
 
       this.setState({ value: value });
     }

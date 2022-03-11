@@ -1,5 +1,6 @@
-import React, { Component, PureComponent } from 'react'
-import reactCSS from 'reactcss'
+import React, { Component, PureComponent } from 'react';
+import debounce from 'lodash/debounce';
+import reactCSS from 'reactcss';
 
 const DEFAULT_ARROW_OFFSET = 1
 
@@ -40,18 +41,21 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   componentWillUnmount() {
-    this.unbindEventListeners()
+    this.unbindEventListeners();
   }
 
   getValueObjectWithLabel(value) {
     return {
       [this.props.label]: value
-    }
+    };
   }
 
-  handleBlur = () => {
+  handleBlur = (e) => {
     if (this.state.blurValue) {
-      this.setState({ value: this.state.blurValue, blurValue: null })
+      const blurVal = this.state.blurValue;
+      this.setState({ value: this.state.blurValue, blurValue: null }, () => {
+        this.props.onChange(blurVal, e)
+      })
     }
   }
 
@@ -78,7 +82,13 @@ export class EditableInput extends (PureComponent || Component) {
 
   setUpdatedValue(value, e) {
     const onChangeValue = this.props.label ? this.getValueObjectWithLabel(value) : value
-    this.props.onChange && this.props.onChange(onChangeValue, e)
+    if (this.props.onChange) {
+      if (this.props.inputDebounceTime) {
+        debounce(this.props.onChange(onChangeValue, e), this.props.inputDebounceTime)
+      } else {
+        this.props.onChange(onChangeValue, e)
+      }
+    }
 
     this.setState({ value })
   }
